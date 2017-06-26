@@ -2,13 +2,15 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import Common from './common/common';
 import Components from './components/components';
+import Services from './services/services';
 import AppComponent from './app.component';
 import 'normalize.css';
 
 angular.module('app', [
     uiRouter,
     Common,
-    Components
+    Components,
+    Services
   ])
   .config(($locationProvider) => {
     "ngInject";
@@ -16,5 +18,6 @@ angular.module('app', [
     // #how-to-configure-your-server-to-work-with-html5mode
     $locationProvider.html5Mode(true).hashPrefix('!');
   })
+  .constant('API_URL', 'http://localhost:8080/api')
 
   .component('app', AppComponent);
